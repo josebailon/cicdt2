@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                echo 'Holita'
+                echo 'Holita1'
                 
             }
         }
