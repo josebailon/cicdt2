@@ -16,7 +16,7 @@ public class Micontroller {
     
     @GetMapping("/hola")
     public String hola(){
-        return "hola1";
+        return "hola2";
     }
     
 }
