@@ -1,7 +1,6 @@
 
 pipeline {
-    agent any
-
+    agent { dockerfile true }
     environment {
         REMOTE_HOST = 'localhost'
         DOCKER_IMAGE = 'my-app:latest'
@@ -26,14 +25,6 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
-            steps {
-                echo 'Building Docker image...'
-                script {
-                    docker.build(env.DOCKER_IMAGE)
-                }
-            }
-        }
 
         stage('Deploy to Remote Server') {
             steps {
