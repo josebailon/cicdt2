@@ -31,6 +31,7 @@ pipeline {
                 script {
                     docker.build(env.DOCKER_IMAGE)
                 }
+                echo 'despues'
             }
         }
 
