@@ -13,6 +13,17 @@ pipeline {
                 git url: 'https://github.com/josebailon/cicdt2.git', branch: 'main'
             }
         }
+        
+        stage('Test'){
+            steps {
+                echo 'Testing the project with Maven inside Docker...'
+                script {
+                    docker.image('maven:3.8.3-openjdk-17').inside {
+                        sh 'mvn test'
+                    }
+                }
+            }
+        }
 
         stage('Build') {
             steps {
