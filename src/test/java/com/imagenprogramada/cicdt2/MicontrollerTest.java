@@ -43,7 +43,7 @@ public class MicontrollerTest {
     public void testHola() {
         System.out.println("hola");
         Micontroller instance = new Micontroller();
-        String expResult = "hola22";
+        String expResult = "hola23";
         String result = instance.hola();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
