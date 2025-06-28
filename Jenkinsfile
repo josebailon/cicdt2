@@ -35,24 +35,7 @@ pipeline {
             }
         }
 
-        stage('Deploy to Remote Server') {
-            steps {
-                echo 'Deploying Docker container to remote server..'
-                echo REMOTE_HOST
-                echo 'Antes'
-                echo 'REMOTE_SSH_CREDENTIALS_ID'
-                echo env.DOCKER_IMAGE
-                sshagent(['REMOTE_SSH_CREDENTIALS_ID']) {
-                    sh """
-                    ssh -o StrictHostKeyChecking=no ubuntu@${REMOTE_HOST} '
-                        docker rm -f ${env.NOMBRE}
-                        docker run -d --name ${env.NOMBRE} -p 80:8080 ${env.DOCKER_IMAGE}
-                    '
-                    """
-                }
-                echo 'despues'
-            }
-        }
+
     }
 
     post {
