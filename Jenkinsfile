@@ -3,7 +3,7 @@ pipeline {
     agent { dockerfile true }
     environment {
         REMOTE_HOST = 'localhost'
-        DOCKER_IMAGE = 'my-app:latest'
+        DOCKER_IMAGE = 't2:latest'
         NOMBRE = 'mit2'
     }
  stages {
@@ -25,15 +25,6 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
-            steps {
-                echo 'Building Docker image...'
-                script {
-                    docker.build(env.DOCKER_IMAGE)
-                }
-                echo 'despues'
-            }
-        }
 
 
     }
