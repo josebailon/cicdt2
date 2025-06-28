@@ -47,7 +47,7 @@ public class MicontrollerTest {
         String result = instance.hola();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.1");
+        //fail("The test case is a prototype.1");
     }
     
 }
