@@ -9,7 +9,7 @@ pipeline {
  stages {
         stage('Checkout') {
             steps {
-                echo 'Checking out code from GitHub.1..'
+                echo 'Checking out code from GitHub...'
                 git url: 'https://github.com/josebailon/cicdt2.git', branch: 'main'
             }
         }
@@ -18,11 +18,22 @@ pipeline {
             steps {
                 echo 'Building the project with Maven inside Docker...'
                 script {
+                    docker.image('maven:3.8.3-openjdk-17').inside {
                         sh 'mvn clean package'
+                    }
                 }
             }
         }
 
+        stage('Build Docker Image') {
+            steps {
+                echo 'Building Docker image1...'
+                script {
+                    docker.build(env.DOCKER_IMAGE)
+                }
+                echo 'despues'
+            }
+        }
 
 
     }
