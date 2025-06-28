@@ -1,6 +1,6 @@
 
 pipeline {
-    agent { any}
+    agent any
     environment {
         REMOTE_HOST = 'localhost'
         DOCKER_IMAGE = 't2:latest'
